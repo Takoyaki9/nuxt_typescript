@@ -1,16 +1,13 @@
 import Vue from 'vue'
 import Vuex, { StoreOptions } from 'vuex'
-import { authUser } from '~/store/authUser'
-
-export interface RootState {
-  version: string
-}
+import user from '~/store/user'
+import RootState from '~/types/RootState'
 
 Vue.use(Vuex)
 
 const store: StoreOptions<RootState> = {
   modules: {
-    authUser,
+    user,
   },
   state: {
     version: '1.0.0', // a simple property

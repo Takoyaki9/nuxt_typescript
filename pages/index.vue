@@ -1,32 +1,32 @@
 <template>
   <div>
-    <h1>Nuxt TypeScript Template</h1>
-    <ul>
-      <li>Nuxt.js</li>
-      <li>TypeScript</li>
-      <li>Bootstrap Vue</li>
-    </ul>
-
-    <b-card
-      :title="authUser.name"
-    ></b-card>
+    aaa
+    {{user}}
   </div>
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'nuxt-property-decorator'
-import { Action, Getter } from 'vuex-class'
-import { AuthUser } from '~/store/types/authUser'
+  import { Component, Vue } from 'nuxt-property-decorator'
+  import { Action, Getter } from 'vuex-class'
+  import user from '~/types/user'
+  const namespace: string = 'user'
+  import Logo from '~/components/Logo.vue'
 
-@Component({})
-export default class extends Vue {
-  @Getter('getAuthUser', { namespace: 'authUser' })
-  private authUser: AuthUser
-  @Action('fetchAuthUser', { namespace: 'authUser' })
-  private fetchAuthUser: any
+  @Component({
+    components: {
+      Logo,
+    },
+  })
 
-  private async created() {
-    await this.fetchAuthUser()
+  export default class extends Vue {
+    @Getter('getUser', { namespace: namespace })
+    private user: user
+
+    // created(){
+    //   console.log('ddddddddd')
+    // }
+
+    // @Action('fetchUser', { namespace: namespace })
+    // private fetchUser: any
   }
-}
 </script>
